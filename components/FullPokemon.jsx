@@ -8,7 +8,7 @@ export default function FUllPokemon({ numero }) {
 
     useEffect(()=>{
         async function getPokemon(){
-            let resposta = await fetch (`https://pokemon.danielpimentel.com.br/v1/pokemon/numero/${numero}`)
+            let resposta = await fetch (`/api/pokemon/${numero}`)
             let dados = await resposta.json()
             setPokemon(dados.pokemon)
         }
