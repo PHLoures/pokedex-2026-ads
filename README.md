@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokedex
 
-## Getting Started
+Projeto feito em [Next.js](https://nextjs.org) para a faculdade. Lista os Pokemon por região, mostra os detalhes de cada um e permite favoritar.
 
-First, run the development server:
+## Funcionalidades
+
+- Listagem dos Pokemon por região (Kanto, Johto, Hoenn...)
+- Tela de detalhes com tipos, imagens, atributos e evoluções
+- Favoritar Pokemon na listagem, salvando no banco de dados
+- Página "Favoritos", que lista apenas os favoritados
+- Página "Sobre"
+
+## Como rodar
+
+Precisa do Node 22.13 ou mais novo.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Depois é só abrir [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tecnologias
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js e React
+- Tailwind CSS
+- SQLite (banco de dados dos favoritos, já vem no Node)
+- API de Pokemon: https://pokemon.danielpimentel.com.br
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+```
+app
+  | page.js                   (listagem)
+  | sobre/page.jsx            (página Sobre)
+  | favoritos/page.jsx        (página Favoritos)
+  | pokemon/[id]/page.jsx     (detalhes do Pokemon)
+  | api/favoritos/route.js    (API que salva os favoritos no banco)
+components
+  | CardPokemon.jsx           (card da listagem)
+  | FullPokemon.jsx           (tela de detalhes)
+lib
+  | db.js                     (conexão com o banco de dados)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Os favoritos ficam salvos no arquivo `favoritos.db`, criado automaticamente na primeira vez que o projeto roda.
