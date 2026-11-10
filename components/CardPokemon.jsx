@@ -1,9 +1,4 @@
-// components/CardPokemon.jsx
-// favorito     -> true ou false: diz se este pokemon já está favoritado
-// onFavoritar  -> função chamada quando clicam na estrela
-// onRemove     -> função do botão Remover (se não for passada, o botão não aparece)
 export default function CardPokemon({pokemon, onRemove, onSelected, favorito, onFavoritar}){
-
 
     return(
         <div className="border rounded-xl border-red-800 p-5 shadow-md hover:scale-105 transition-all duration-300">
@@ -32,7 +27,6 @@ export default function CardPokemon({pokemon, onRemove, onSelected, favorito, on
                     <button className=" text xl bg-red-600 text-white py-1 px-2 rounded-2xl cursor-pointer" onClick={()=> onRemove(pokemon.numero)}>Remover</button>
                 )}
 
-                {/* Estrela cheia se for favorito, vazia se não for */}
                 <button
                     className="text-2xl text-yellow-500 cursor-pointer"
                     title={favorito ? "Tirar dos favoritos" : "Favoritar"}
@@ -43,7 +37,6 @@ export default function CardPokemon({pokemon, onRemove, onSelected, favorito, on
             </div>
 
         </div>
-
 
     )
 }

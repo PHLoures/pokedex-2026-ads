@@ -11,7 +11,6 @@ export default function Home() {
 
   let [pokemons, setPokemons] = useState([])
 
-  // Guarda os NÚMEROS dos pokemons favoritados. Ex: [1, 4, 25]
   let [favoritos, setFavoritos] = useState([])
 
   // Irá gerenciar as nossas rotas
@@ -28,12 +27,10 @@ export default function Home() {
     getRegioes()
   },[])
 
-  // executa uma unica vez: busca no BD quais pokemons já são favoritos
   useEffect(()=>{
     async function getFavoritos(){
       let resposta = await fetch ("/api/favoritos")
       let dados = await resposta.json()
-      // do BD vem o pokemon inteiro, aqui só precisamos do numero
       setFavoritos(dados.favoritos.map((item) => item.numero))
     }
     getFavoritos()
@@ -56,14 +53,11 @@ export default function Home() {
     setPokemons(pokemonsUpdateList)
   }
 
-  // Chamada quando clicam na estrela de um card
   async function onFavoritar(pokemon){
     if (favoritos.includes(pokemon.numero)) {
-      // Já era favorito: apaga do BD e tira da lista
       await fetch("/api/favoritos", { method: "DELETE", body: JSON.stringify(pokemon) })
       setFavoritos(favoritos.filter( numero => numero != pokemon.numero))
     } else {
-      // Não era favorito: salva no BD e coloca na lista
       await fetch("/api/favoritos", { method: "POST", body: JSON.stringify(pokemon) })
       setFavoritos([...favoritos, pokemon.numero])
     }

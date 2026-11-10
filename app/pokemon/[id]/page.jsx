@@ -7,8 +7,8 @@ export default async function PokemonPage({ params }) {
     let parameters = await params
     let id = parameters.id
 
-    // O componente FUllPokemon recebe o numero, busca as informações
-    // deste pokemon na API e monta a página completa
+    // Pegar as informações deste pokemon
+    // e montar uma página completa
     // https://pokemon.danielpimentel.com.br/v1/pokemon/numero/15
     
     return (

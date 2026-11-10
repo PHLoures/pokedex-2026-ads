@@ -1,5 +1,3 @@
-// /app/favoritos/page.jsx  (site.com/favoritos)
-// Lista apenas os pokemons que foram favoritados (os que estão salvos no BD)
 'use client'
 import CardPokemon from "@/components/CardPokemon";
 import { useEffect, useState } from "react";
@@ -11,7 +9,6 @@ export default function FavoritosPage() {
 
     let router = useRouter()
 
-    // executa uma unica vez: busca os favoritos salvos no BD
     useEffect(()=>{
         async function getFavoritos(){
             let resposta = await fetch ("/api/favoritos")
@@ -21,7 +18,6 @@ export default function FavoritosPage() {
         getFavoritos()
     },[])
 
-    // Nesta tela todos são favoritos, então clicar na estrela sempre desfavorita
     async function onDesfavoritar(pokemon){
         await fetch("/api/favoritos", { method: "DELETE", body: JSON.stringify(pokemon) })
         setFavoritos(favoritos.filter( item => item.numero != pokemon.numero))
