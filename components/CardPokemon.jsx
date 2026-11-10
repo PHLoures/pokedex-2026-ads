@@ -6,7 +6,8 @@ export default function CardPokemon({pokemon, onRemove, onSelected, favorito, on
 
 
     return(
-        <div className="border-gray-100 border rounded-xl border-sky-800 p-5 ">
+        <div className="border rounded-xl border-red-800 p-5 shadow-md hover:scale-105 transition-all duration-300">
+            <span className="text-xs font-semibold text-gray-500">#{pokemon.numero}</span>
             <img
                 className="whidth h-50 cursor-pointer"
                 src={pokemon.img}

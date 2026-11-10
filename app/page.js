@@ -78,11 +78,11 @@ export default function Home() {
 // SPA - Single Page Application
   return (
     <div >
-      <ul className="bg-sky-500 text-white flex gap-4 py-2 px-6">
+      <ul className="bg-red-600 text-white flex gap-4 py-3 px-6 font-semibold flex-wrap">
         {regioes.map((item)=>(
           <li 
             key={'reg_'+item.id}
-            className="cursor-pointer capitalize hover:text-red-700 transition-all duration-300"
+            className="cursor-pointer capitalize hover:text-yellow-300 transition-all duration-300"
             onClick={() => setRegiao(item.id)}
           >
             {item.nome}
@@ -97,12 +97,11 @@ export default function Home() {
       </ul>
 
       <div className="mt-6">
-        <h1 className="text-2x1 text-center font-semibold">
-          Pokemon
-          
+        <h1 className="text-3xl text-center font-bold mb-6">
+          Pokedex
         </h1>
 
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex gap-4 flex-wrap justify-center px-6 pb-6">
           {pokemons.map((item) => (
             <CardPokemon key={
               'poke_'+item.numero} pokemon={item} onRemove={onRemove} onSelected={onPokemonClicked}

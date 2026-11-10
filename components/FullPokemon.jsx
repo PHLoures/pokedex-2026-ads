@@ -50,7 +50,7 @@ export default function FUllPokemon({ numero }) {
             {/* Tipos */}
             <div className="flex gap-2 justify-center mt-2">
                 {tipos.map((tipo) => (
-                    <span key={tipo} className="bg-sky-500 text-white capitalize py-1 px-3 rounded-2xl text-sm">
+                    <span key={tipo} className="bg-red-600 text-white capitalize py-1 px-3 rounded-2xl text-sm">
                         {tipo}
                     </span>
                 ))}
@@ -73,7 +73,7 @@ export default function FUllPokemon({ numero }) {
             </div>
 
             {/* Informações gerais */}
-            <div className="border rounded-xl border-sky-800 p-5 mt-6">
+            <div className="border rounded-xl border-red-800 p-5 mt-6">
                 <h2 className="font-semibold mb-2">Informações</h2>
                 <p>Número: <span className="font-semibold">{pokemon.numero}</span></p>
                 <p>Geração: <span className="font-semibold">{pokemon.geracao}</span></p>
@@ -82,7 +82,7 @@ export default function FUllPokemon({ numero }) {
             </div>
 
             {/* Atributos com barrinha */}
-            <div className="border rounded-xl border-sky-800 p-5 mt-4">
+            <div className="border rounded-xl border-red-800 p-5 mt-4">
                 <h2 className="font-semibold mb-2">Atributos</h2>
                 {atributos.map((item) => (
                     <div key={item.nome} className="flex items-center gap-2 mt-1">
@@ -91,7 +91,7 @@ export default function FUllPokemon({ numero }) {
                         <div className="flex-1 bg-gray-200 rounded-2xl h-3">
                             {/* O maior valor possível de um atributo é 255 */}
                             <div
-                                className="bg-sky-500 rounded-2xl h-3"
+                                className="bg-red-600 rounded-2xl h-3"
                                 style={{ width: (item.valor / 255 * 100) + "%" }}
                             />
                         </div>
@@ -100,13 +100,13 @@ export default function FUllPokemon({ numero }) {
             </div>
 
             {/* Evoluções */}
-            <div className="border rounded-xl border-sky-800 p-5 mt-4">
+            <div className="border rounded-xl border-red-800 p-5 mt-4">
                 <h2 className="font-semibold mb-2">Evoluções</h2>
                 <div className="flex gap-2 flex-wrap">
                     {evolucoes.map((nome) => (
                         <span
                             key={nome}
-                            className={"capitalize py-1 px-3 rounded-2xl text-sm border border-sky-800 " + (nome == pokemon.nome ? "bg-sky-500 text-white" : "")}
+                            className={"capitalize py-1 px-3 rounded-2xl text-sm border border-red-800 " + (nome == pokemon.nome ? "bg-red-600 text-white" : "")}
                         >
                             {nome}
                         </span>

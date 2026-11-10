@@ -33,11 +33,11 @@ export default function FavoritosPage() {
 
     return (
         <div>
-            <ul className="bg-sky-500 text-white flex gap-4 py-2 px-6">
+            <ul className="bg-red-600 text-white flex gap-4 py-3 px-6 font-semibold flex-wrap">
                 <li>
                     <Link href="/">Início</Link>
                 </li>
-                <li className="font-bold">
+                <li className="text-yellow-300">
                     <Link href="/favoritos">Favoritos</Link>
                 </li>
                 <li>
@@ -46,7 +46,7 @@ export default function FavoritosPage() {
             </ul>
 
             <div className="mt-6">
-                <h1 className="text-2xl text-center font-semibold mb-4">
+                <h1 className="text-3xl text-center font-bold mb-6">
                     Meus Favoritos
                 </h1>
 
@@ -54,7 +54,7 @@ export default function FavoritosPage() {
                     <p className="text-center">Você ainda não favoritou nenhum pokemon.</p>
                 )}
 
-                <div className="flex gap-4 flex-wrap px-6">
+                <div className="flex gap-4 flex-wrap justify-center px-6 pb-6">
                     {favoritos.map((item) => (
                         <CardPokemon
                             key={'fav_'+item.numero}
